@@ -1,15 +1,28 @@
 import { makeTestSuite } from 'zoroaster'
 import Context from '../context'
-import detectJsx from '../../src'
+import { findPosition } from '../../src/lib'
+import { findIndexByEvaluating } from '../../src'
 
-const ts = makeTestSuite('test/result', {
-  async getResults(input) {
-    const res = await detectJsx({
-      text: input,
-    })
+export
+const FindLength = makeTestSuite('test/result/find-position.md', {
+  /**
+   * @param {string} input
+   * @param {Context} context
+   */
+  getResults(input, { getStack }) {
+    const stack = getStack(input)
+    const res = findPosition(stack, input)
     return res
   },
   context: Context,
+  jsonProps: ['expected'],
 })
 
-// export default ts
+export
+const FindIndex = makeTestSuite('test/result/find-index.md', {
+  getResults(input) {
+    const res = findIndexByEvaluating(input)
+    return res
+  },
+  jsonProps: ['expected'],
+})

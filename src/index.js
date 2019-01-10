@@ -1,21 +1,20 @@
-import { debuglog } from 'util'
-
-const LOG = debuglog('@a-la/detect-jsx')
+import { Script } from 'vm'
+import { findPosition } from './lib'
 
 /**
- * Detects Position Of JSX Tag In JavaScript File.
- * @param {Config} [config] Options for the program.
- * @param {boolean} [config.shouldRun=true] A boolean option. Default `true`.
- * @param {string} config.text A text to return.
+ * Returns the index of the opening `<` symbol in a JSX tag by calling a Script constructor and extracting information from the error message.
+ * @param {string} input The string to evaluate in the V8 VM as JavaScript with JSX. If there is no `<`, the `null` is returned. Any another error in code will be thrown as is.
  */
-export default async function detectJsx(config = {}) {
-  const {
-    shouldRun = true,
-    text,
-  } = config
-  if (!shouldRun) return
-  LOG('@a-la/detect-jsx called with %s', text)
-  return text
+export const findIndexByEvaluating = (input) => {
+  try {
+    new Script(input)
+  } catch (err) {
+    const { message, stack } = err
+    if ('Unexpected token <' != message) throw err
+    const bl = findPosition(stack, input)
+    return bl
+  }
+  return null
 }
 
 /* documentary types/index.xml */
