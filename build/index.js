@@ -1,22 +1,23 @@
-const { debuglog } = require('util');
-
-const LOG = debuglog('@a-la/detect-jsx')
+const { Script } = require('vm');
+const { findPosition } = require('./lib');
 
 /**
- * Detects Position Of JSX Tag In JavaScript File.
- * @param {Config} [config] Options for the program.
- * @param {boolean} [config.shouldRun=true] A boolean option. Default `true`.
- * @param {string} config.text A text to return.
+ * Returns the index of the opening `<` symbol in a JSX tag by calling a Script constructor and extracting information from the error message.
+ * @param {string} input The string to evaluate in the V8 VM as JavaScript with JSX. If there is no `<`, the `null` is returned. Any another error in code will be thrown as is.
  */
-               async function detectJsx(config = {}) {
-  const {
-    shouldRun = true,
-    text,
-  } = config
-  if (!shouldRun) return
-  LOG('@a-la/detect-jsx called with %s', text)
-  return text
+const detectJSX = (input) => {
+  try {
+    new Script(input)
+  } catch (err) {
+    const { message, stack } = err
+    if ('Unexpected token <' != message) throw err
+    const bl = findPosition(stack, input)
+    return bl
+  }
+  return null
 }
+
+module.exports=detectJSX
 
 /* documentary types/index.xml */
 /**
@@ -24,7 +25,3 @@ const LOG = debuglog('@a-la/detect-jsx')
  * @prop {boolean} [shouldRun=true] A boolean option. Default `true`.
  * @prop {string} text A text to return.
  */
-
-
-module.exports = detectJsx
-//# sourceMappingURL=index.js.map
