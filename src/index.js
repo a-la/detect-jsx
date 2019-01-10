@@ -5,7 +5,7 @@ import { findPosition } from './lib'
  * Returns the index of the opening `<` symbol in a JSX tag by calling a Script constructor and extracting information from the error message.
  * @param {string} input The string to evaluate in the V8 VM as JavaScript with JSX. If there is no `<`, the `null` is returned. Any another error in code will be thrown as is.
  */
-export const findIndexByEvaluating = (input) => {
+const detectJSX = (input) => {
   try {
     new Script(input)
   } catch (err) {
@@ -16,6 +16,8 @@ export const findIndexByEvaluating = (input) => {
   }
   return null
 }
+
+export default detectJSX
 
 /* documentary types/index.xml */
 /**

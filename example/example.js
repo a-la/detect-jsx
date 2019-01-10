@@ -1,9 +1,9 @@
 /* yarn example/ */
-import detectJsx from '../src'
+import read from '@wrote/read'
+import detectJSX from '../src'
 
 (async () => {
-  const res = await detectJsx({
-    text: 'example',
-  })
+  const code = await read('example/Component.jsx')
+  const res = detectJSX(code)
   console.log(res)
 })()

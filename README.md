@@ -1,8 +1,8 @@
 # @a-la/detect-jsx
 
-[![npm version](https://badge.fury.io/js/@a-la/detect-jsx.svg)](https://npmjs.org/package/@a-la/detect-jsx)
+[![npm version](https://badge.fury.io/js/%40a-la%2Fdetect-jsx.svg)](https://npmjs.org/package/@a-la/detect-jsx)
 
-`@a-la/detect-jsx` is Detects Position Of JSX Tag In JavaScript File.
+`@a-la/detect-jsx` Detects Position Of JSX Tag In JavaScript File.
 
 ```sh
 yarn add -E @a-la/detect-jsx
@@ -12,8 +12,7 @@ yarn add -E @a-la/detect-jsx
 
 - [Table Of Contents](#table-of-contents)
 - [API](#api)
-- [`detectJsx(arg1: string, arg2?: boolean)`](#mynewpackagearg1-stringarg2-boolean-void)
-  * [`Config`](#type-config)
+- [`detectJsx(string: string): number`](#detectjsxstring-string-number)
 - [Copyright](#copyright)
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/0.svg?sanitize=true"></a></p>
@@ -28,30 +27,32 @@ import detectJsx from '@a-la/detect-jsx'
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/1.svg?sanitize=true"></a></p>
 
-## `detectJsx(`<br/>&nbsp;&nbsp;`arg1: string,`<br/>&nbsp;&nbsp;`arg2?: boolean,`<br/>`): void`
+## `detectJsx(`<br/>&nbsp;&nbsp;`string: string,`<br/>`): number`
 
-Call this function to get the result you want.
+Returns the position of the first JSX tag by evaluating the code using Node's `vm` package: since JSX reference will throw an error, this error can be caught and used to find out the index of the opening `<` symbol in JSX.
 
-__<a name="type-config">`Config`</a>__: Options for the program.
+For example, given the following JSX component:
+```jsx
+const Component = ({ example }) => (
+  <div class="Test" id={example}></div>
+)
+```
 
-|   Name    |   Type    |    Description    | Default |
-| --------- | --------- | ----------------- | ------- |
-| shouldRun | _boolean_ | A boolean option. | `true`  |
-| __text*__ | _string_  | A text to return. | -       |
+It is possible to detect where `JSX` starts:
 
 ```js
 /* yarn example/ */
-import detectJsx from '@a-la/detect-jsx'
+import read from '@wrote/read'
+import detectJSX from '@a-la/detect-jsx'
 
 (async () => {
-  const res = await detectJsx({
-    text: 'example',
-  })
+  const code = await read('example/Component.jsx')
+  const res = detectJSX(code)
   console.log(res)
 })()
 ```
 ```
-example
+39
 ```
 
 <p align="center"><a href="#table-of-contents"><img src=".documentary/section-breaks/2.svg?sanitize=true"></a></p>

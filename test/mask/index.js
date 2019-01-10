@@ -1,7 +1,7 @@
 import { makeTestSuite } from 'zoroaster'
 import Context from '../context'
 import { findPosition } from '../../src/lib'
-import { findIndexByEvaluating } from '../../src'
+import detectJSX from '../../src'
 
 export
 const FindLength = makeTestSuite('test/result/find-position.md', {
@@ -21,7 +21,7 @@ const FindLength = makeTestSuite('test/result/find-position.md', {
 export
 const FindIndex = makeTestSuite('test/result/find-index.md', {
   getResults(input) {
-    const res = findIndexByEvaluating(input)
+    const res = detectJSX(input)
     return res
   },
   jsonProps: ['expected'],

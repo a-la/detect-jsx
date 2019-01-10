@@ -8,16 +8,18 @@ import detectJsx from '@a-la/detect-jsx'
 
 %~%
 
-```## detectJsx
+```## detectJsx => number
 [
-  ["arg1", "string"],
-  ["arg2?", "boolean"]
+  ["string", "string"]
 ]
 ```
 
-Call this function to get the result you want.
+Returns the position of the first JSX tag by evaluating the code using Node's `vm` package: since JSX reference will throw an error, this error can be caught and used to find out the index of the opening `<` symbol in JSX.
 
-%TYPEDEF types/index.xml%
+For example, given the following JSX component:
+%EXAMPLE: example/Component.jsx%
+
+It is possible to detect where `JSX` starts:
 
 %EXAMPLE: example/example.js, ../src => @a-la/detect-jsx%
 %FORK example example/example%
