@@ -21,6 +21,11 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@artdeco/clean-stack/-/clean-stack-1.0.0.tgz#36ff9c9f66e6cb1eb0bfa90341be21cba70c7ea6"
 
+"@artdeco/clean-stack@1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@artdeco/clean-stack/-/clean-stack-1.0.1.tgz#7e4d3bb1b0ac62173b00e4bba7091f7847cdb088"
+  integrity sha512-ZSavD8NpWA1/1SRCKrx8LZ5WfbKS1kRUIFOERJvR1jXqCAcbM3xWSP2VdCKEh4lCwWghSWQkotbpK6n+o1Y/xQ==
+
 "@wrote/clone@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@wrote/clone/-/clone-1.0.1.tgz#2f6e24f4855467b13cc4d7a2ca9677d07ab40292"
@@ -41,12 +46,12 @@
   dependencies:
     makepromise "2.0.0"
 
-"@wrote/read@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@wrote/read/-/read-1.0.0.tgz#ab57de1def7af1ec0b63853b63147ed641ba0db0"
-  integrity sha512-oUI1SAvdlTVYlbro4sfm5OzsT6GSuisqrJsi2YqaAgVNykqm5flPXsnttOeDksjvMD9LjHXPMkTtmytmzfoluQ==
+"@wrote/read@1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@wrote/read/-/read-1.0.2.tgz#6d1d2b2f3e2e1830007384b06c31fb58ec77cf21"
+  integrity sha512-Db4j0GimaxxK4oudPvtlyirgNzmVgadiBv2pu1qWYWQM9M2/Pt53cnbSaJplnORZV19908NWm2x18g5XZNoKDQ==
   dependencies:
-    catchment "3.1.1"
+    catchment "3.2.1"
 
 "@zoroaster/fork@1.0.0":
   version "1.0.0"
@@ -143,6 +148,14 @@ catchment@3.2.0:
     "@artdeco/clean-stack" "1.0.0"
     erotic "2.0.1"
 
+catchment@3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/catchment/-/catchment-3.2.1.tgz#43b1aa1f183538fb8fc556b5dc5e0885bfe707d1"
+  integrity sha512-ITAsJ2U7YAZgref9E8TtpVU+xdkHLa7xWoj5XCGS7oE1OV/4c/MLiaDUE3x7tbJIpd3ADEvKLtfwBHGHl/Xk1g==
+  dependencies:
+    "@artdeco/clean-stack" "1.0.1"
+    erotic "2.0.2"
+
 catchment@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/catchment/-/catchment-1.0.0.tgz#3061f71be0102710be84328d2f94363a165f8c4b"
@@ -208,6 +221,13 @@ erotic@2.0.1:
   resolved "https://registry.yarnpkg.com/erotic/-/erotic-2.0.1.tgz#bcb45bf61e5a3a9006bbee2cf998515a56f3961b"
   dependencies:
     "@artdeco/clean-stack" "1.0.0"
+
+erotic@2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/erotic/-/erotic-2.0.2.tgz#22d611ea49bcacdc577abb9fbff3af67cbc5c1e3"
+  integrity sha512-iH9zPUi+/Y6vuzSz7EBRKI25UiBliDz4/lH1+BubsZZBBBZ77xV3iUlkUT0xKOBHbOOWOoH5J5xeSVDqWR3ivQ==
+  dependencies:
+    "@artdeco/clean-stack" "1.0.1"
 
 erte@1.1.4:
   version "1.1.4"
