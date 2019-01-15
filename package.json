@@ -1,8 +1,9 @@
 {
   "name": "@a-la/detect-jsx",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Detects Position Of JSX Tag In JavaScript File.",
   "main": "build",
+  "module": "src/index.js",
   "scripts": {
     "t": "zoroaster -a",
     "test": "yarn t test/spec test/mask",
@@ -20,7 +21,8 @@
     "example/": "yarn e example/example.js"
   },
   "files": [
-    "build"
+    "build",
+    "src"
   ],
   "repository": {
     "type": "git",
