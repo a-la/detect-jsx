@@ -39,11 +39,11 @@
   },
   "homepage": "https://github.com/a-la/detect-jsx#readme",
   "devDependencies": {
-    "@wrote/read": "1.0.2",
-    "alamode": "1.6.1",
-    "documentary": "1.20.1",
-    "eslint-config-artdeco": "1.0.1",
-    "yarn-s": "1.1.0",
-    "zoroaster": "3.6.6"
+    "@wrote/read": "^1.0.4",
+    "alamode": "^3.3.2",
+    "documentary": "^1.35.11",
+    "eslint-config-artdeco": "^1.0.1",
+    "yarn-s": "^1.2.3",
+    "zoroaster": "^4.2.0"
   }
 }

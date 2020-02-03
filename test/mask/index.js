@@ -1,4 +1,4 @@
-import { makeTestSuite } from 'zoroaster'
+import makeTestSuite from '@zoroaster/mask'
 import Context from '../context'
 import { findPosition } from '../../src/lib'
 import detectJSX from '../../src'
@@ -9,9 +9,9 @@ const FindLength = makeTestSuite('test/result/find-position.md', {
    * @param {string} input
    * @param {Context} context
    */
-  getResults(input, { getStack }) {
-    const stack = getStack(input)
-    const res = findPosition(stack, input)
+  getResults({ getStack }) {
+    const stack = getStack(this.input)
+    const res = findPosition(stack, this.input)
     return res
   },
   context: Context,
@@ -20,8 +20,8 @@ const FindLength = makeTestSuite('test/result/find-position.md', {
 
 export
 const FindIndex = makeTestSuite('test/result/find-index.md', {
-  getResults(input) {
-    const res = detectJSX(input)
+  getResults() {
+    const res = detectJSX(this.input)
     return res
   },
   jsonProps: ['expected'],
