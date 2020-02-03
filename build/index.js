@@ -10,7 +10,7 @@ const detectJSX = (input) => {
     new Script(input)
   } catch (err) {
     const { message, stack } = err
-    if ('Unexpected token <' != message) throw err
+    if (!/Unexpected token '?</.test(message)) throw err
     const bl = findPosition(stack, input)
     return bl
   }

@@ -3,7 +3,7 @@
  * @param {string} stack The error stack.
  * @param {string} input The input which was passed to the evaluation.
  */
-       const findPosition = (stack, input) => {
+const findPosition = (stack, input) => {
   const [h, , l2] = stack.split('\n')
   const l = parseInt(h.replace(/.+?(\d+)$/, (m, d) => d)) - 1
   const c = l2.indexOf('^')
