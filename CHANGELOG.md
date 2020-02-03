@@ -1,3 +1,9 @@
+## 3 February 2020
+
+### 1.0.2
+
+- [fix] Fix for Node 12.
+
 ## 15 January 2019
 
 ### 1.0.1
