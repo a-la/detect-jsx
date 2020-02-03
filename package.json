@@ -1,6 +1,6 @@
 {
   "name": "@a-la/detect-jsx",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Detects Position Of JSX Tag In JavaScript File.",
   "main": "build",
   "module": "src/index.js",
